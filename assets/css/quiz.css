@@ -1,0 +1,414 @@
+/* ==========================================================================
+   ALGOPLAY — Mesin kuis (pre-test / post-test / evaluasi kustom)
+   ========================================================================== */
+
+.quiz-wrap {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.mock-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--red-pale);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  font-size: var(--fs-sm);
+  margin-bottom: 1.25rem;
+}
+
+/* Intro */
+.quiz-intro h2 {
+  margin-top: 0;
+}
+.quiz-intro ul {
+  margin-bottom: 1.2rem;
+}
+
+/* Status / loading */
+.quiz-status {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  padding: 1.25rem;
+}
+.spinner {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border: 4px solid var(--sage-light);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-top-color: var(--ink);
+  }
+}
+
+/* Progress bar lengket */
+.quiz-progress {
+  position: sticky;
+  top: calc(var(--header-h) + 8px);
+  z-index: 20;
+  background: var(--card);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  box-shadow: var(--shadow-hard-sm);
+  margin-bottom: 1.25rem;
+}
+.quiz-progress__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.quiz-progress__bar {
+  height: 14px;
+  background: var(--sage-pale);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.quiz-progress__fill {
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--yellow) 0 8px,
+    var(--yellow-dark) 8px 16px
+  );
+  transition: width 0.25s ease;
+}
+.quiz-progress__fill.is-complete {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--green) 0 8px,
+    #4f9c60 8px 16px
+  );
+}
+
+/* Header kuis */
+.quiz-head {
+  margin-bottom: 1.25rem;
+}
+.quiz-head h2 {
+  margin: 0.2rem 0 0.4rem;
+}
+.quiz-head p {
+  color: var(--text-muted);
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* Kartu soal */
+.q-card {
+  background: var(--card);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-hard-sm);
+  scroll-margin-top: calc(var(--header-h) + 90px);
+}
+.q-card.is-invalid {
+  border-color: var(--red);
+  box-shadow: 2px 2px 0 var(--red);
+}
+.q-card--section {
+  background: var(--sage-light);
+  padding-block: 0.9rem;
+}
+.q-card--section h3 {
+  margin: 0 0 0.2rem;
+  font-size: var(--fs-lg);
+}
+.q-card--section p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+.q-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+.q-card__num {
+  flex: none;
+  min-width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+}
+.q-card__title {
+  flex: 1 1 220px;
+  font-weight: 600;
+  font-size: var(--fs-lg);
+  line-height: 1.4;
+  margin: 0.15rem 0 0;
+  white-space: pre-line;
+}
+.q-card__req {
+  color: var(--red);
+  font-weight: 700;
+}
+.q-card__help {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  margin: -0.3rem 0 0.75rem 3rem;
+  white-space: pre-line;
+}
+.q-card__pts {
+  margin-left: auto;
+  flex: none;
+}
+.q-card__body {
+  margin-left: 3rem;
+}
+@media (max-width: 560px) {
+  .q-card__body,
+  .q-card__help {
+    margin-left: 0;
+  }
+}
+
+/* Pilihan */
+.choices {
+  display: grid;
+  gap: 0.5rem;
+}
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  min-height: 48px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.choice:hover {
+  background: var(--sage-pale);
+}
+.choice:has(input:checked) {
+  background: var(--yellow-pale);
+  box-shadow: inset 0 0 0 2px var(--ink);
+}
+.choice:has(input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.choice input {
+  width: 22px;
+  height: 22px;
+  margin: 0.1rem 0 0;
+  accent-color: var(--red);
+  flex: none;
+}
+.choice span {
+  flex: 1;
+  white-space: pre-line;
+}
+.choice__other {
+  margin-top: 0.4rem;
+  margin-left: 2.6rem;
+}
+
+/* Input teks */
+.field {
+  width: 100%;
+  font: inherit;
+  padding: 0.7rem 0.9rem;
+  min-height: 48px;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--text);
+}
+.field:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  background: #fff;
+}
+textarea.field {
+  min-height: 130px;
+  resize: vertical;
+}
+select.field {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 2.6rem;
+}
+.field-counter {
+  text-align: right;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+}
+
+/* Pesan kesalahan per soal */
+.q-error {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-top: 0.6rem;
+  color: var(--red-dark);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+.q-error svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  margin-top: 0.15rem;
+}
+
+/* Footer form */
+.quiz-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: var(--sage-pale);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+}
+.quiz-actions p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+}
+
+/* Dialog konfirmasi */
+.dialog {
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  padding: 0;
+  max-width: 440px;
+  width: calc(100% - 2rem);
+  background: var(--card);
+  box-shadow: var(--shadow-hard);
+}
+.dialog::backdrop {
+  background: rgba(43, 29, 24, 0.55);
+}
+.dialog__body {
+  padding: 1.4rem 1.4rem 1.2rem;
+}
+.dialog h3 {
+  margin-top: 0;
+}
+.dialog .btn-row {
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+}
+
+/* Hasil */
+.result {
+  text-align: center;
+}
+.result__ring {
+  --pct: 0;
+  width: 170px;
+  height: 170px;
+  margin: 0.5rem auto 1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--green) calc(var(--pct) * 1%), var(--sage-pale) 0);
+  border: var(--line) solid var(--ink);
+  box-shadow: var(--shadow-hard);
+}
+.result__ring > div {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: var(--card);
+  border: var(--line) solid var(--ink);
+  display: grid;
+  place-content: center;
+}
+.result__pct {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+}
+.result__frac {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.result__facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  text-align: left;
+}
+.result__facts div {
+  background: var(--sage-pale);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+}
+.result__facts strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+.result__facts span {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+.result__id {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+/* Error / config card */
+.state-card {
+  padding: 1.4rem;
+}
+.state-card h3 {
+  margin-top: 0;
+}
+.state-card .btn-row {
+  margin-top: 1rem;
+}
+.err-details {
+  margin-top: 0.75rem;
+  font-size: var(--fs-sm);
+}

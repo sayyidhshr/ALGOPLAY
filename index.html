@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ALGOPLAY — Belajar Struktur Data Linear lewat Game</title>
+  <meta name="description" content="ALGOPLAY adalah media pembelajaran interaktif untuk memahami Array, Linked List, Stack, dan Queue melalui game Unity, pre-test, post-test, dan evaluasi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="ALGOPLAY, beranda">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="12" width="11" height="16" rx="2" fill="#e0d94a" stroke="#2b1d18" stroke-width="3"/><rect x="14.5" y="12" width="11" height="16" rx="2" fill="#9ca99b" stroke="#2b1d18" stroke-width="3"/><rect x="27" y="12" width="11" height="16" rx="2" fill="#c73a32" stroke="#2b1d18" stroke-width="3"/><circle cx="8" cy="33" r="3" fill="#2b1d18"/><circle cx="32" cy="33" r="3" fill="#2b1d18"/></svg>
+        ALGOPLAY
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu"><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="materi.html">Materi</a>
+        <a href="panduan.html">Panduan</a>
+        <a href="akses-game.html">Akses Game</a>
+        <a href="faq.html">Bantuan</a>
+        <a class="nav__cta" href="pretest.html">Mulai Pre-test</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="reveal">
+          <span class="eyebrow">Media pembelajaran · Kelas XI RPL/PPLG</span>
+          <h1>Pahami struktur data linear bersama <span class="brand-word">ALGOPLAY</span></h1>
+          <p class="lead">Pelajari Array, Linked List, Stack, dan Queue lewat visualisasi dan tantangan di dalam game, lalu ukur pemahamanmu dengan pre-test dan post-test di satu tempat.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="pretest.html">Mulai Pembelajaran</a>
+            <a class="btn" href="tentang.html">Kenali ALGOPLAY</a>
+          </div>
+          <p class="text-muted mt-1" style="font-size:var(--fs-sm)">Urutannya: pre-test → bermain → post-test → evaluasi. Sekitar 45–60 menit, bisa dijeda.</p>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <img src="assets/img/game/locomotive.png" alt="" width="1400" height="556" />
+          <div class="hero__track"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="hazard" aria-hidden="true"></div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Apa yang dipelajari</span>
+          <h2>Empat struktur data, empat cara melihatnya</h2>
+          <p class="lead">Di dalam game, tiap struktur punya metafora sendiri supaya operasinya terasa nyata, bukan sekadar hafalan.</p>
+        </div>
+        <div class="grid grid--4">
+          <a class="card topic-card" href="materi.html#array">
+            <div class="topic-card__viz" aria-hidden="true">
+              <svg viewBox="0 0 200 60"><g stroke="#2b1d18" stroke-width="3"><rect x="4" y="14" width="40" height="32" rx="4" fill="#e0d94a"/><rect x="52" y="14" width="40" height="32" rx="4" fill="#9ca99b"/><rect x="100" y="14" width="40" height="32" rx="4" fill="#9ca99b"/><rect x="148" y="14" width="40" height="32" rx="4" fill="#9ca99b"/></g><g font-family="JetBrains Mono, monospace" font-size="11" fill="#2b1d18" text-anchor="middle"><text x="24" y="58">0</text><text x="72" y="58">1</text><text x="120" y="58">2</text><text x="168" y="58">3</text></g></svg>
+            </div>
+            <span class="tag">indeks · elemen</span>
+            <h3>Array</h3>
+            <p>Gerbong kereta berjajar dengan nomor indeks. Akses langsung ke elemen mana pun.</p>
+          </a>
+          <a class="card topic-card" href="materi.html#linked-list">
+            <div class="topic-card__viz" aria-hidden="true">
+              <svg viewBox="0 0 200 60"><g stroke="#2b1d18" stroke-width="3"><rect x="4" y="16" width="34" height="28" rx="4" fill="#9ca99b"/><rect x="38" y="16" width="14" height="28" fill="#f6dcd9"/><rect x="78" y="16" width="34" height="28" rx="4" fill="#9ca99b"/><rect x="112" y="16" width="14" height="28" fill="#f6dcd9"/><rect x="152" y="16" width="34" height="28" rx="4" fill="#9ca99b"/><rect x="186" y="16" width="12" height="28" fill="#f6dcd9"/></g><g stroke="#2b1d18" stroke-width="3" fill="none"><path d="M52 30h22M68 24l6 6-6 6"/><path d="M126 30h22M142 24l6 6-6 6"/></g></svg>
+            </div>
+            <span class="tag">node · pointer</span>
+            <h3>Linked List</h3>
+            <p>Node yang saling menunjuk. Ukurannya luwes, tetapi harus ditelusuri dari head.</p>
+          </a>
+          <a class="card topic-card" href="materi.html#stack">
+            <div class="topic-card__viz" aria-hidden="true">
+              <svg viewBox="0 0 200 60"><g stroke="#2b1d18" stroke-width="3"><rect x="50" y="42" width="100" height="12" rx="6" fill="#e3b76a"/><rect x="50" y="30" width="100" height="10" rx="4" fill="#8b5a3c"/><rect x="50" y="19" width="100" height="9" rx="4" fill="#86c26a"/><rect x="50" y="4" width="100" height="14" rx="7" fill="#e3b76a"/></g></svg>
+            </div>
+            <span class="tag">push · pop · LIFO</span>
+            <h3>Stack</h3>
+            <p>Tumpukan burger. Lapisan terakhir yang ditaruh adalah yang pertama diambil.</p>
+          </a>
+          <a class="card topic-card" href="materi.html#queue">
+            <div class="topic-card__viz" aria-hidden="true">
+              <svg viewBox="0 0 200 60"><g stroke="#2b1d18" stroke-width="3"><rect x="14" y="8" width="34" height="44" rx="4" fill="#fffdf7"/><rect x="58" y="8" width="34" height="44" rx="4" fill="#fffdf7"/><rect x="102" y="8" width="34" height="44" rx="4" fill="#fffdf7"/><rect x="146" y="8" width="34" height="44" rx="4" fill="#fffdf7"/></g><g fill="#c73a32"><rect x="14" y="8" width="34" height="7" rx="3"/><rect x="58" y="8" width="34" height="7" rx="3"/><rect x="102" y="8" width="34" height="7" rx="3"/><rect x="146" y="8" width="34" height="7" rx="3"/></g></svg>
+            </div>
+            <span class="tag">enqueue · dequeue · FIFO</span>
+            <h3>Queue</h3>
+            <p>Antrean kartu. Yang datang lebih dulu, dilayani lebih dulu.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="card card--panel" data-label="Alur belajar">
+          <div data-progress-rail></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid grid--3">
+        <div class="card card--flat card--sage">
+          <h3>Visual, bukan hafalan</h3>
+          <p class="mb-0">Setiap operasi — tambah, hapus, akses — terlihat langsung pada objek di layar, lengkap dengan potongan kode yang menyertainya.</p>
+        </div>
+        <div class="card card--flat card--sage">
+          <h3>Terukur</h3>
+          <p class="mb-0">Pre-test dan post-test memakai tampilan yang sama, tersimpan ke formulir masing-masing, dan skor soal objektif dihitung otomatis.</p>
+        </div>
+        <div class="card card--flat card--sage">
+          <h3>Suaramu dipakai</h3>
+          <p class="mb-0">Formulir evaluasi di akhir membantu pengembang memperbaiki game dan materi pada versi berikutnya.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__grid">
+        <div>
+          <h2>Siap memulai?</h2>
+          <p class="mb-0">Langkah pertama adalah pre-test singkat untuk mengetahui pemahaman awalmu. Tidak perlu persiapan khusus.</p>
+        </div>
+        <a class="btn btn--primary" href="pretest.html">Kerjakan Pre-test</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>ALGOPLAY</h4>
+        <p class="mb-0">Platform pendamping game edukasi Struktur Data Linear untuk siswa kelas XI RPL/PPLG. Website ini menghubungkan materi, akses game, dan evaluasi pembelajaran.</p>
+      </div>
+      <div>
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="panduan.html">Panduan bermain</a></li>
+          <li><a href="akses-game.html">Akses game</a></li>
+          <li><a href="faq.html">Bantuan &amp; FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tahapan</h4>
+        <ul>
+          <li><a href="pretest.html">Pre-test</a></li>
+          <li><a href="posttest.html">Post-test</a></li>
+          <li><a href="evaluasi.html">Evaluasi</a></li>
+          <li><a href="selesai.html">Ringkasan</a></li>
+        </ul>
+      </div>
+      <p class="copy">© <span data-year></span> ALGOPLAY. Data tes digunakan untuk keperluan penelitian media pembelajaran sesuai prosedur yang disampaikan pendamping.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/progress.js"></script>
+</body>
+</html>

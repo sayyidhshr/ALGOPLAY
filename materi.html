@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materi Struktur Data Linear — ALGOPLAY</title>
+  <meta name="description" content="Ringkasan materi Array, Linked List, Stack, dan Queue dengan ilustrasi interaktif sederhana." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <style>
+    .topic { scroll-margin-top: calc(var(--header-h) + 16px); }
+    .topic + .topic { border-top: var(--line) dashed var(--sage); }
+    .topic__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 860px) { .topic__grid { grid-template-columns: 1fr; } }
+    .subnav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .subnav a { text-decoration: none; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="ALGOPLAY, beranda">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="12" width="11" height="16" rx="2" fill="#e0d94a" stroke="#2b1d18" stroke-width="3"/><rect x="14.5" y="12" width="11" height="16" rx="2" fill="#9ca99b" stroke="#2b1d18" stroke-width="3"/><rect x="27" y="12" width="11" height="16" rx="2" fill="#c73a32" stroke="#2b1d18" stroke-width="3"/><circle cx="8" cy="33" r="3" fill="#2b1d18"/><circle cx="32" cy="33" r="3" fill="#2b1d18"/></svg>
+        ALGOPLAY
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu"><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="materi.html">Materi</a>
+        <a href="panduan.html">Panduan</a>
+        <a href="akses-game.html">Akses Game</a>
+        <a href="faq.html">Bantuan</a>
+        <a class="nav__cta" href="pretest.html">Mulai Pre-test</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <span class="eyebrow">Materi</span>
+        <h1>Struktur Data Linear</h1>
+        <p class="lead">Ringkasan tiap struktur beserta ilustrasi yang bisa kamu coba. Versi lengkapnya ada di dalam game.</p>
+        <nav class="subnav" aria-label="Daftar materi">
+          <a class="btn btn--sm" href="#array">Array</a>
+          <a class="btn btn--sm" href="#linked-list">Linked List</a>
+          <a class="btn btn--sm" href="#stack">Stack</a>
+          <a class="btn btn--sm" href="#queue">Queue</a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ARRAY -->
+    <section class="section topic" id="array">
+      <div class="container topic__grid">
+        <div class="prose">
+          <span class="eyebrow">01 · Array</span>
+          <h2 class="mt-0">Array</h2>
+          <p><strong>Array</strong> adalah kumpulan elemen bertipe sama yang disimpan berurutan dan diberi nomor <strong>indeks</strong>. Indeks dimulai dari <code>0</code>, sehingga elemen ke-3 berada pada indeks <code>2</code>.</p>
+          <h3>Karakteristik</h3>
+          <ul>
+            <li>Ukuran ditentukan saat dibuat (pada array statis).</li>
+            <li>Setiap elemen dapat diakses langsung melalui indeksnya, misalnya <code>nilai[2]</code>.</li>
+            <li>Elemen tersimpan berdampingan, seperti gerbong yang dirangkai pada satu lokomotif.</li>
+          </ul>
+          <h3>Operasi dasar</h3>
+          <ul>
+            <li><strong>Membuat</strong> array dengan ukuran tertentu.</li>
+            <li><strong>Mengisi</strong> atau <strong>mengubah</strong> nilai pada indeks tertentu.</li>
+            <li><strong>Mengakses</strong> nilai pada indeks tertentu.</li>
+          </ul>
+          <p class="text-muted" style="font-size:var(--fs-sm)">Di dalam game: materi Array divisualkan sebagai rangkaian gerbong kereta. Setiap gerbong adalah satu elemen dengan nomor indeksnya.</p>
+        </div>
+        <div class="viz" data-viz="array">
+          <h3 style="font-size:var(--fs-lg);margin-top:0">Coba: akses elemen lewat indeks</h3>
+          <div class="viz__stage viz__stage--indexed" data-stage></div>
+          <div class="viz__controls">
+            <label for="arr-idx" style="font-weight:600">Indeks</label>
+            <input id="arr-idx" class="field" type="number" min="0" max="4" value="0" style="width:90px;min-height:44px" />
+            <button type="button" class="btn btn--sm btn--primary" data-act="get">Akses</button>
+            <button type="button" class="btn btn--sm" data-act="set">Ubah nilai</button>
+          </div>
+          <div class="viz__log" data-log aria-live="polite">Klik gerbong atau masukkan indeks.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKED LIST -->
+    <section class="section topic" id="linked-list">
+      <div class="container topic__grid">
+        <div class="prose">
+          <span class="eyebrow">02 · Linked List</span>
+          <h2 class="mt-0">Linked List</h2>
+          <p><strong>Linked list</strong> tersusun dari <strong>node</strong>. Setiap node menyimpan data dan sebuah <strong>pointer/referensi</strong> ke node berikutnya (<code>next</code>). Node pertama disebut <strong>head</strong>, node terakhir menunjuk ke <code>null</code>.</p>
+          <h3>Karakteristik</h3>
+          <ul>
+            <li>Ukuran dapat bertambah atau berkurang kapan saja.</li>
+            <li>Elemen tidak harus berdampingan di memori — yang penting pointernya benar.</li>
+            <li>Untuk mencapai node ke-n, penelusuran dimulai dari head.</li>
+          </ul>
+          <h3>Operasi dasar</h3>
+          <ul>
+            <li><strong>Menambah</strong> node di akhir (atau di posisi tertentu) dengan memperbarui pointer.</li>
+            <li><strong>Menghapus</strong> node dengan mengalihkan pointer node sebelumnya.</li>
+            <li><strong>Menelusuri</strong> dari head sampai <code>null</code>.</li>
+          </ul>
+        </div>
+        <div class="viz" data-viz="list">
+          <h3 style="font-size:var(--fs-lg);margin-top:0">Coba: tambah dan hapus node</h3>
+          <div class="viz__stage" data-stage style="justify-content:flex-start"></div>
+          <div class="viz__controls">
+            <button type="button" class="btn btn--sm btn--primary" data-act="append">Tambah di akhir</button>
+            <button type="button" class="btn btn--sm" data-act="removeHead">Hapus head</button>
+            <button type="button" class="btn btn--sm" data-act="traverse">Telusuri</button>
+          </div>
+          <div class="viz__log" data-log aria-live="polite">head → … → null</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="section topic" id="stack">
+      <div class="container topic__grid">
+        <div class="prose">
+          <span class="eyebrow">03 · Stack</span>
+          <h2 class="mt-0">Stack</h2>
+          <p><strong>Stack</strong> mengikuti prinsip <strong>LIFO</strong> — <em>Last In, First Out</em>. Elemen yang terakhir dimasukkan adalah yang pertama dikeluarkan. Bayangkan tumpukan burger: lapisan paling atas selalu yang paling baru.</p>
+          <h3>Operasi dasar</h3>
+          <ul>
+            <li><strong>push</strong> — menaruh elemen di puncak (<em>top</em>).</li>
+            <li><strong>pop</strong> — mengambil elemen dari puncak.</li>
+            <li><strong>peek</strong> — melihat elemen puncak tanpa mengambilnya.</li>
+          </ul>
+          <p>Contoh penerapan: tombol <em>undo</em>, tumpukan pemanggilan fungsi, pengecekan tanda kurung yang berpasangan.</p>
+        </div>
+        <div class="viz" data-viz="stack">
+          <h3 style="font-size:var(--fs-lg);margin-top:0">Coba: push dan pop</h3>
+          <div class="viz__stage" data-stage><div class="burger" data-burger></div></div>
+          <div class="viz__controls">
+            <button type="button" class="btn btn--sm btn--primary" data-act="push">push()</button>
+            <button type="button" class="btn btn--sm" data-act="pop">pop()</button>
+            <button type="button" class="btn btn--sm" data-act="peek">peek()</button>
+          </div>
+          <div class="viz__log" data-log aria-live="polite">Stack kosong.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUEUE -->
+    <section class="section topic" id="queue">
+      <div class="container topic__grid">
+        <div class="prose">
+          <span class="eyebrow">04 · Queue</span>
+          <h2 class="mt-0">Queue</h2>
+          <p><strong>Queue</strong> mengikuti prinsip <strong>FIFO</strong> — <em>First In, First Out</em>. Elemen yang pertama masuk adalah yang pertama keluar, persis seperti antrean di loket.</p>
+          <h3>Operasi dasar</h3>
+          <ul>
+            <li><strong>enqueue</strong> — menambahkan elemen di belakang (<em>rear</em>).</li>
+            <li><strong>dequeue</strong> — mengeluarkan elemen dari depan (<em>front</em>).</li>
+            <li><strong>front</strong> — melihat elemen terdepan tanpa mengeluarkannya.</li>
+          </ul>
+          <p>Contoh penerapan: antrean cetak dokumen, penjadwalan tugas, antrean pesan.</p>
+        </div>
+        <div class="viz" data-viz="queue">
+          <h3 style="font-size:var(--fs-lg);margin-top:0">Coba: enqueue dan dequeue</h3>
+          <div class="viz__stage" data-stage style="align-items:center"></div>
+          <div class="viz__controls">
+            <button type="button" class="btn btn--sm btn--primary" data-act="enqueue">enqueue()</button>
+            <button type="button" class="btn btn--sm" data-act="dequeue">dequeue()</button>
+          </div>
+          <div class="viz__log" data-log aria-live="polite">Queue kosong.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="notice notice--info">
+          <span class="notice__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 10v6m0-9h.01"/></svg></span>
+          <div><strong>Catatan.</strong><p class="mb-0">Cakupan operasi pada halaman ini mengikuti materi yang dipakai di dalam game dan instrumen tes. Istilah yang digunakan — indeks, elemen, node, pointer, push, pop, enqueue, dequeue, LIFO, FIFO — sama dengan yang akan kamu temui di soal.</p></div>
+        </div>
+        <div class="btn-row mt-2">
+          <a class="btn btn--primary" href="pretest.html">Kerjakan Pre-test</a>
+          <a class="btn" href="akses-game.html">Buka game</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>ALGOPLAY</h4>
+        <p class="mb-0">Platform pendamping game edukasi Struktur Data Linear untuk siswa kelas XI RPL/PPLG.</p>
+      </div>
+      <div>
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="panduan.html">Panduan bermain</a></li>
+          <li><a href="akses-game.html">Akses game</a></li>
+          <li><a href="faq.html">Bantuan &amp; FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tahapan</h4>
+        <ul>
+          <li><a href="pretest.html">Pre-test</a></li>
+          <li><a href="posttest.html">Post-test</a></li>
+          <li><a href="evaluasi.html">Evaluasi</a></li>
+          <li><a href="selesai.html">Ringkasan</a></li>
+        </ul>
+      </div>
+      <p class="copy">© <span data-year></span> ALGOPLAY. Data tes digunakan untuk keperluan penelitian media pembelajaran sesuai prosedur yang disampaikan pendamping.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/materi.js"></script>
+</body>
+</html>

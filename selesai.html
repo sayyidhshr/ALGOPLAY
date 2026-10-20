@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ringkasan — ALGOPLAY</title>
+  <meta name="description" content="Ringkasan tahapan pembelajaran ALGOPLAY yang tercatat di browser ini." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="ALGOPLAY, beranda">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="12" width="11" height="16" rx="2" fill="#e0d94a" stroke="#2b1d18" stroke-width="3"/><rect x="14.5" y="12" width="11" height="16" rx="2" fill="#9ca99b" stroke="#2b1d18" stroke-width="3"/><rect x="27" y="12" width="11" height="16" rx="2" fill="#c73a32" stroke="#2b1d18" stroke-width="3"/><circle cx="8" cy="33" r="3" fill="#2b1d18"/><circle cx="32" cy="33" r="3" fill="#2b1d18"/></svg>
+        ALGOPLAY
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu"><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="materi.html">Materi</a>
+        <a href="panduan.html">Panduan</a>
+        <a href="akses-game.html">Akses Game</a>
+        <a href="faq.html">Bantuan</a>
+        <a class="nav__cta" href="pretest.html">Mulai Pre-test</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section">
+    <div class="container quiz-wrap">
+      <div class="card" data-summary-card>
+        <span class="eyebrow">Ringkasan</span>
+        <h1 style="font-size:var(--fs-2xl)" data-summary-title>Rangkaian pembelajaran</h1>
+        <p data-summary-lead></p>
+        <div data-progress-rail></div>
+        <div class="notice notice--info mt-2">
+          <span class="notice__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 10v6m0-9h.01"/></svg></span>
+          <div><strong>Tentang status di atas.</strong><p class="mb-0">Status "Selesai" untuk pre-test dan post-test dicatat hanya setelah server mengonfirmasi jawaban tersimpan. Status tahap bermain dan evaluasi ditandai olehmu sendiri. Penyelesaian resmi diverifikasi pengelola dari data respons yang masuk, bukan dari halaman ini.</p></div>
+        </div>
+        <div class="grid grid--2 mt-2" data-scores></div>
+        <h3 class="mt-2">Langkah selanjutnya</h3>
+        <ul>
+          <li>Tidak ada yang perlu dikirim lagi. Pendamping akan memeriksa kelengkapan data.</li>
+          <li>Jika salah satu tahap belum selesai, buka tautannya dari daftar di atas.</li>
+          <li>Kamu tetap boleh membuka <a href="materi.html">materi</a> dan bermain lagi kapan saja.</li>
+        </ul>
+        <div class="btn-row mt-1">
+          <a class="btn btn--primary" href="index.html">Kembali ke beranda</a>
+          <button type="button" class="btn btn--ghost" data-reset-progress>Hapus catatan di browser ini</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>ALGOPLAY</h4>
+        <p class="mb-0">Platform pendamping game edukasi Struktur Data Linear untuk siswa kelas XI RPL/PPLG.</p>
+      </div>
+      <div>
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="panduan.html">Panduan bermain</a></li>
+          <li><a href="akses-game.html">Akses game</a></li>
+          <li><a href="faq.html">Bantuan &amp; FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tahapan</h4>
+        <ul>
+          <li><a href="pretest.html">Pre-test</a></li>
+          <li><a href="posttest.html">Post-test</a></li>
+          <li><a href="evaluasi.html">Evaluasi</a></li>
+          <li><a href="selesai.html">Ringkasan</a></li>
+        </ul>
+      </div>
+      <p class="copy">© <span data-year></span> ALGOPLAY. Data tes digunakan untuk keperluan penelitian media pembelajaran sesuai prosedur yang disampaikan pendamping.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var P = window.AlgoPlay.progress;
+      var esc = window.AlgoPlay.escapeHtml;
+      function render() {
+        var st = P.get();
+        var doneCount = P.STEPS.filter(function (s) { return st[s.key].status === "done"; }).length;
+        var all = doneCount === P.STEPS.length;
+        document.querySelector("[data-summary-title]").textContent = all ? "Semua tahap tercatat selesai" : doneCount + " dari " + P.STEPS.length + " tahap tercatat selesai";
+        document.querySelector("[data-summary-lead]").textContent = all
+          ? "Terima kasih sudah mengikuti seluruh rangkaian. Catatan di bawah berasal dari browser ini."
+          : "Masih ada tahap yang belum tercatat di browser ini. Jika kamu mengerjakannya di perangkat lain, abaikan peringatan ini.";
+        var scores = document.querySelector("[data-scores]");
+        var html = "";
+        ["pretest", "posttest"].forEach(function (k) {
+          var s = st[k];
+          if (s.status !== "done") return;
+          html += '<div class="card card--flat card--sage"><strong>' + (k === "pretest" ? "Pre-test" : "Post-test") + "</strong><br>" +
+            (s.percentage !== null && s.percentage !== undefined ? '<span style="font-family:var(--font-display);font-size:1.6rem">' + s.percentage + "%</span><br>" : '<span class="text-muted">Skor otomatis tidak tersedia</span><br>') +
+            '<span class="text-muted" style="font-size:var(--fs-xs)">ID respons: ' + esc(s.responseId || "-") + "</span></div>";
+        });
+        scores.innerHTML = html;
+      }
+      document.querySelector("[data-reset-progress]").addEventListener("click", function () {
+        if (confirm("Hapus catatan tahap di browser ini? Data yang sudah terkirim ke formulir tidak terpengaruh.")) { P.reset(); render(); }
+      });
+      render();
+    });
+  </script>
+</body>
+</html>

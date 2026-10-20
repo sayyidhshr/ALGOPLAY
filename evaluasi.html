@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evaluasi &amp; Kritik — ALGOPLAY</title>
+  <meta name="description" content="Berikan pendapat, kritik, dan saran tentang pengalaman belajar dengan ALGOPLAY." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@500;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/quiz.css" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="ALGOPLAY, beranda">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="12" width="11" height="16" rx="2" fill="#e0d94a" stroke="#2b1d18" stroke-width="3"/><rect x="14.5" y="12" width="11" height="16" rx="2" fill="#9ca99b" stroke="#2b1d18" stroke-width="3"/><rect x="27" y="12" width="11" height="16" rx="2" fill="#c73a32" stroke="#2b1d18" stroke-width="3"/><circle cx="8" cy="33" r="3" fill="#2b1d18"/><circle cx="32" cy="33" r="3" fill="#2b1d18"/></svg>
+        ALGOPLAY
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu"><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="tentang.html">Tentang</a>
+        <a href="materi.html">Materi</a>
+        <a href="panduan.html">Panduan</a>
+        <a href="akses-game.html">Akses Game</a>
+        <a href="faq.html">Bantuan</a>
+        <a class="nav__cta" href="pretest.html">Mulai Pre-test</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="section" data-eval-root>
+    <div class="container quiz-wrap">
+      <!-- Mode "link": instrumen asli di Google Forms -->
+      <div class="card quiz-intro" data-eval-link>
+        <span class="eyebrow">Tahap 4 · Evaluasi</span>
+        <h2>Pendapatmu tentang ALGOPLAY</h2>
+        <p>Formulir ini menanyakan pengalamanmu saat bermain dan belajar dengan ALGOPLAY — apa yang membantu, apa yang membingungkan, dan apa yang perlu diperbaiki. Tidak ada jawaban benar atau salah.</p>
+        <ul>
+          <li>Formulir dibuka di tab baru melalui Google Forms agar instrumen evaluasi tetap sama persis dengan yang disusun peneliti.</li>
+          <li>Isi kode peserta jika diminta, agar dapat dikaitkan dengan hasil tesmu.</li>
+          <li>Setelah mengirim, kembali ke tab ini dan tekan "Saya sudah mengisi evaluasi".</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn--primary" data-config-href="links.evaluationForm" href="#" target="_blank" rel="noopener">Buka formulir evaluasi</a>
+          <button type="button" class="btn" data-mark-eval>Saya sudah mengisi evaluasi</button>
+        </div>
+        <p class="mt-1 mb-0" data-eval-status role="status" style="font-size:var(--fs-sm)"></p>
+      </div>
+
+      <!-- Mode "custom": dirender mesin kuis -->
+      <div data-eval-custom hidden>
+        <div class="card quiz-intro" data-quiz-intro>
+          <span class="eyebrow">Tahap 4 · Evaluasi</span>
+          <h2>Pendapatmu tentang ALGOPLAY</h2>
+          <p>Jawab sesuai pengalamanmu. Tidak ada jawaban benar atau salah; semua masukan membantu perbaikan game dan materi.</p>
+          <div class="btn-row">
+            <button type="button" class="btn btn--primary" data-quiz-start>Mulai evaluasi</button>
+          </div>
+        </div>
+        <div data-quiz-mount></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <h4>ALGOPLAY</h4>
+        <p class="mb-0">Platform pendamping game edukasi Struktur Data Linear untuk siswa kelas XI RPL/PPLG.</p>
+      </div>
+      <div>
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="materi.html">Materi</a></li>
+          <li><a href="panduan.html">Panduan bermain</a></li>
+          <li><a href="akses-game.html">Akses game</a></li>
+          <li><a href="faq.html">Bantuan &amp; FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tahapan</h4>
+        <ul>
+          <li><a href="pretest.html">Pre-test</a></li>
+          <li><a href="posttest.html">Post-test</a></li>
+          <li><a href="evaluasi.html">Evaluasi</a></li>
+          <li><a href="selesai.html">Ringkasan</a></li>
+        </ul>
+      </div>
+      <p class="copy">© <span data-year></span> ALGOPLAY. Data tes digunakan untuk keperluan penelitian media pembelajaran sesuai prosedur yang disampaikan pendamping.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script>
+    /* Pilih mode sebelum quiz.js berjalan: pada mode custom, root diberi data-quiz. */
+    (function () {
+      var cfg = window.ALGOPLAY_CONFIG || {};
+      var root = document.querySelector("[data-eval-root]");
+      var linkBox = document.querySelector("[data-eval-link]");
+      var customBox = document.querySelector("[data-eval-custom]");
+      if (cfg.evaluationMode === "custom") {
+        linkBox.hidden = true;
+        customBox.hidden = false;
+        root.setAttribute("data-quiz", "evaluation");
+        // pindahkan mount & intro agar quiz.js menemukannya di bawah root
+      } else {
+        customBox.remove();
+        document.addEventListener("DOMContentLoaded", function () {
+          var P = window.AlgoPlay.progress;
+          var btn = document.querySelector("[data-mark-eval]");
+          var status = document.querySelector("[data-eval-status]");
+          function refresh() {
+            var st = P.get().evaluation;
+            if (st.status === "done") {
+              status.innerHTML = "Ditandai selesai pada " + P.fmtDate(st.at) + " (tersimpan di browser ini). " + '<a href="selesai.html">Lihat ringkasan →</a>';
+              btn.textContent = "Sudah ditandai";
+              btn.disabled = true;
+            }
+          }
+          P.markInProgress("evaluation");
+          btn.addEventListener("click", function () { P.markDone("evaluation"); refresh(); });
+          refresh();
+        });
+      }
+    })();
+  </script>
+  <script src="assets/js/quiz.js"></script>
+</body>
+</html>
